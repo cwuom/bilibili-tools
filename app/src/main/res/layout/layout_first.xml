@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/dp_10">
+
+
+    <ImageView
+        android:id="@+id/bilibili"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bilibili_2" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bilibili"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-123dp"
+        android:text="bilibili辅助器Beta"
+        android:textColor="#1C1C1C"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-36dp"
+        android:text="By cwuom | 2022"
+        android:textColor="#717171"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-241dp"
+        android:text="@string/b_api_n_cookie_n_n_nb_im_cwuom_cwuomcwuom00"
+        android:textColor="#3A3A3A"
+        android:textSize="@dimen/sp_15"
+        android:textStyle="bold" />
+
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/example"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_content"
+        android:layout_marginBottom="-193dp"
+        android:elevation="6dp"
+        app:outer_color="#4CAF50"
+        app:text="开始使用"
+        app:text_size="@dimen/sp_18" />
+
+</RelativeLayout>

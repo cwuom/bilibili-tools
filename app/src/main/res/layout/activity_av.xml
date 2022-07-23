@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AVActivity">
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <com.github.mmin18.widget.RealtimeBlurView
+        android:id="@+id/blur_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:realtimeBlurRadius="5dp"
+        app:realtimeOverlayColor="#8000" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/tv_av"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_btn_9"
+            android:paddingLeft="@dimen/dp_30"
+            android:paddingRight="@dimen/dp_30"
+            android:text="还没出来呢www"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_34" />
+
+        <ImageView
+            android:id="@+id/iv_av"
+            android:layout_width="match_parent"
+            android:layout_height="231dp"
+            android:layout_alignBottom="@id/tv_av"
+            android:layout_marginBottom="-241dp"
+
+
+            />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="384dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_av"
+            android:layout_marginBottom="-58dp"
+            android:background="@drawable/bg_btn_1"
+            android:text="视频详情"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <RelativeLayout
+            android:id="@+id/rl_progress"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@id/btn_check"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="-40dp">
+
+            <com.cwuom.YJSLFull.CustomizedProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_data_integrity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textSize="10sp"
+                tools:text="白嫖率0%" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_piao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/rl_progress"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-49dp"
+            android:background="@drawable/bg_btn_3"
+            android:padding="@dimen/dp_10"
+            android:text="白嫖人数: 0 | 观看人数: 0"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_10"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/download_av"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_piao"
+            android:layout_marginBottom="-102dp"
+            android:background="@drawable/bg_btn_2"
+            android:text="下载视频"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/danmu_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/download_av"
+            android:layout_marginBottom="-67dp"
+            android:background="@drawable/bg_btn_2"
+            android:text="弹幕解析"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

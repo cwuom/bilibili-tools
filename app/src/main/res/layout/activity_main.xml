@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VIPActivity">
+
+
+    <ImageView
+        android:id="@+id/iv_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/main_bg"
+        android:scaleType="centerCrop"
+        />
+
+
+    <com.github.mmin18.widget.RealtimeBlurView
+        android:id="@+id/blur_bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:realtimeBlurRadius="5dp"
+        app:realtimeOverlayColor="#8000"
+        />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="9:01:00"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_34"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_time"
+            android:layout_marginBottom="-196dp"
+            android:background="@drawable/bg_btn_5"
+            android:hint="uid"
+            android:padding="@dimen/dp_10"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:errorEnabled="true"
+            app:helperText="*输入UP主的UID*"
+            app:hintTextColor="#FFFFFF">
+            <!--以上属性要结合具体情况使用，这里仅展示列出-->
+            <EditText
+                android:id="@+id/et_uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_bg"
+                android:drawableRight="@mipmap/bilibili"
+                android:drawablePadding="@dimen/dp_20"
+                android:inputType="number"
+                android:maxLength="16"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/textField"
+            android:layout_marginBottom="-139dp"
+            android:background="@drawable/bg_btn_3"
+            android:hint="视频链接"
+            android:padding="@dimen/dp_10"
+            app:counterEnabled="true"
+            app:counterMaxLength="100"
+            app:errorEnabled="true"
+            app:helperText="*输入视频链接*"
+            app:hintTextColor="#FFFFFF">
+            <!--以上属性要结合具体情况使用，这里仅展示列出-->
+            <EditText
+                android:id="@+id/et_av"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_bg"
+                android:drawableRight="@mipmap/bilibili"
+                android:drawablePadding="@dimen/dp_20"
+                android:maxLength="100"
+                android:textSize="@dimen/sp_13"
+                android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <io.ghyeok.stickyswitch.widget.StickySwitch
+            android:id="@+id/sticky_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/textField2"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="-129dp"
+            app:ss_animationDuration="600"
+            app:ss_animationType="line"
+            app:ss_iconPadding="18dp"
+            app:ss_iconSize="22dp"
+            app:ss_leftIcon="@drawable/uid"
+            app:ss_leftText="UID"
+            app:ss_rightIcon="@drawable/video"
+            app:ss_rightText="视频"
+            app:ss_selectedTextSize="14sp"
+            app:ss_sliderBackgroundColor="#FFFFFF"
+            app:ss_textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/sticky_switch"
+            android:layout_marginBottom="-95dp"
+            android:background="@drawable/bg_btn_2"
+            android:text="分析并查看"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <com.bitvale.switcher.SwitcherC
+            android:id="@+id/switcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/btn_check"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-81dp"
+            android:checked="false"
+            app:switcher_icon_color="#FFFFFF"
+            app:switcher_off_color="#FF5722"
+            app:switcher_on_color="#4CAF50" />
+
+    </RelativeLayout>
+
+
+    <com.github.mmin18.widget.RealtimeBlurView
+        android:id="@+id/blur_bg2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        app:realtimeBlurRadius="5dp" />
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VIPActivity">
+
+    <VideoView
+        android:id="@+id/videoview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="注册会员"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_marginBottom="-129dp"
+            android:background="@drawable/bg_btn_1"
+            android:hint="uid"
+            android:padding="@dimen/dp_10"
+            app:counterEnabled="true"
+            app:counterMaxLength="16"
+            app:errorEnabled="true"
+            app:helperText="*B站UID*"
+            app:hintTextColor="#FFFFFF">
+            <!--以上属性要结合具体情况使用，这里仅展示列出-->
+            <EditText
+                android:id="@+id/et_uid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/et_bg"
+                android:drawableRight="@mipmap/bilibili"
+                android:drawablePadding="@dimen/dp_20"
+                android:inputType="number"
+                android:maxLength="16"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_reg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/textField"
+            android:layout_marginBottom="-99dp"
+            android:background="@drawable/bg_btn_3"
+            android:text="验证您的UID"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <TextView
+            android:id="@+id/tv_q"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/btn_reg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-249dp"
+            android:background="@drawable/text_bg"
+            android:text="为什么一直在验证中？"
+            android:textColor="#FFFFFF" />
+    </RelativeLayout>
+
+
+</RelativeLayout>

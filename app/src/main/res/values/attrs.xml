@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="RoundCornerImageView">
+        <attr name="radius" format="dimension" />
+        <attr name="left_top_radius" format="dimension" />
+        <attr name="right_top_radius" format="dimension" />
+        <attr name="right_bottom_radius" format="dimension" />
+        <attr name="left_bottom_radius" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="GradualChangeProgess">
+        <!--        目标进度-->
+        <attr name="currentProgess" format="float" />
+        <!--        进度条文字-->
+        <attr name="progessText" format="string" />
+        <!--        进度条宽度-->
+        <attr name="progessWidth" format="dimension" />
+        <!--        进度条高度-->
+        <attr name="progessHeight" format="dimension" />
+    </declare-styleable>
+</resources>

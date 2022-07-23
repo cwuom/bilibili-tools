@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#ffffff"
+    android:padding="@dimen/dp_10">
+
+    <TextView
+        android:id="@+id/iv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@mipmap/bilibili"
+        android:drawableRight="@mipmap/bilibili"
+        android:drawablePadding="@dimen/dp_10"
+        android:text="哔哩哔哩辅助器"
+        android:textColor="#4C4C4C"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_first"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/iv_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-57dp"
+        android:text="初次使用？选择你的身份吧！"
+        android:textSize="@dimen/sp_20" />
+
+    <nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup
+        android:id="@+id/cards"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_first"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginBottom="-250dp"
+        android:paddingLeft="@dimen/dp_10"
+        app:alignItems="center">
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/card1"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_145"
+            app:layout_flexGrow="1"
+            app:toggle_icon="@drawable/fen"
+            app:toggle_iconGravity="top|center"
+            app:toggle_iconPaddingHorizontal="15dp"
+            app:toggle_iconPaddingTop="15dp"
+            app:toggle_selectedBackgroundColor="#5e6fed"
+            app:toggle_selectedTextColor="@android:color/white"
+            app:toggle_text="不是UP的粉丝"
+            app:toggle_textGravity="bottom|center"
+            app:toggle_textPaddingBottom="20dp"
+            app:toggle_textSize="@dimen/sp_15"
+            />
+
+        <nl.bryanderidder.themedtogglebuttongroup.ThemedButton
+            android:id="@+id/card2"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_145"
+            app:layout_flexGrow="1"
+            app:toggle_icon="@drawable/like"
+            app:toggle_iconGravity="top|center"
+            app:toggle_iconPaddingHorizontal="15dp"
+            app:toggle_iconPaddingTop="15dp"
+            app:toggle_selectedBackgroundColor="#5e6fed"
+            app:toggle_selectedTextColor="@android:color/white"
+            app:toggle_text="我是UP的老粉"
+            app:toggle_textGravity="bottom|center"
+            app:toggle_textPaddingBottom="20dp"
+            app:toggle_textSize="@dimen/sp_15" />
+
+        <!-- ... -->
+
+    </nl.bryanderidder.themedtogglebuttongroup.ThemedToggleButtonGroup>
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cards"
+        android:layout_marginBottom="-259dp"
+        android:background="@drawable/bg_btn_8"
+        android:text="开始使用"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_cwuom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/cards"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-349dp"
+        android:text="bilibili@im-cwuom | Group:364272511 | 联系方式请点击"
+        android:textSize="@dimen/sp_12" />
+
+</RelativeLayout>

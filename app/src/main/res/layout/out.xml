@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="630dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#00FFFFFF">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_20">
+
+        <ImageView
+            android:id="@+id/img_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/cancel" />
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/img_cancel"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-54dp"
+            android:text="取关检测"
+            android:textColor="#2E2E2E"
+            android:textSize="@dimen/sp_25"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-66dp"
+            android:text="经过后台验证，你好像取关了我！"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_f1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-101dp"
+            android:text="有任何意见请私信！"
+            android:textSize="@dimen/sp_15" />
+
+        <TextView
+            android:id="@+id/tv_f2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-148dp"
+            android:text="如果这是误判，您可以滑动并关闭此窗口"
+            android:textSize="@dimen/sp_15"
+            android:textStyle="italic" />
+
+        <com.ncorti.slidetoact.SlideToActView
+            android:id="@+id/example"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/tv_f2"
+            android:layout_marginBottom="-148dp"
+            app:inner_color="#FFFFFF"
+            app:outer_color="#03A9F4"
+            app:text="滑动关闭确认"
+            />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>

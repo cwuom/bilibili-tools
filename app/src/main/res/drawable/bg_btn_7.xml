@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--1、圆角 和 按下后背景变颜色-->
+    <item android:state_checked="false"><!-- 按钮未点击-->
+        <shape>
+            <stroke android:width="3dp" android:color="#FFFFFF" /><!-- 边框颜色，边框大小-->
+            <solid android:color="#009F7F75" /> <!-- 填充的颜色：这里设置背景透明 -->
+            <corners android:radius="3dp" /><!-- android:radius 弧形的半径 -->
+            <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+        </shape>
+    </item>
+
+    <item android:state_checked="true"> <!-- 按钮选中状态-->
+        <shape>
+            <stroke android:width="3dp" android:color="#FFFFFF" /><!-- 边框颜色，边框大小-->
+            <solid android:color="#A1323232" /> <!-- 填充的颜色：这里设置背景透明 -->
+            <corners android:radius="3dp" /><!-- android:radius 弧形的半径 -->
+            <padding android:bottom="10dp" android:left="10dp" android:right="10dp" android:top="10dp" />
+        </shape>
+    </item>
+</selector>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/ROG/.gradle/caches/transforms-3/0725366f60c159254206c9603da16422/transformed/jetified-DialogXIOSStyle-0.0.43/res/layout/layout_dialogx_bottom_ios.xml" value="0.14493373236425822" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn.xml" value="0.2415" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_1.xml" value="0.1" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_10.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_11.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_2.xml" value="0.2415" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_3.xml" value="0.2415" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_4.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_5.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_6.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_7.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_8.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_9.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_progress.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/btn_bottom_confirm_bg.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/btn_ripple.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/btn_ripple2.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/btn_ripple3.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/check_border.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/et_bg.xml" value="0.2415" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/img_round.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/progressbar_carch.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/radiobtn_bg.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/radiobtn_circlecolor.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/radiobtn_ripplecolor.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/radiobtn_textcolor.xml" value="0.2405" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/text_bg.xml" value="0.2415" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_auto.xml" value="0.22" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_av.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_first.xml" value="0.33541666666666664" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_login.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_uid.xml" value="0.33" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_vipactivity.xml" value="0.35104166666666664" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_word.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_check.xml" value="0.28815733219324496" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_first.xml" value="0.2975630611372381" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_nibeipianle.xml" value="0.288034188034188" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/out.xml" value="0.2984181274048739" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/toast.xml" value="0.33" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/toast_ok.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

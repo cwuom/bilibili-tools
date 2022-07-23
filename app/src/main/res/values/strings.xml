@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">白嫖计数器</string>
+    <string name="b_api_n_cookie_n_n_nb_im_cwuom_cwuomcwuom00">软件较为简单，通过B站API实现的基础功能。部分自动化功能会需要cookie（这是必要的，我们不会获取）[方式：通过登录获取]\n\n软件到达一定门槛会开源(｡･ω･｡)\nB站：im-cwuom | 微信: cwuomcwuom00</string>
+</resources>
