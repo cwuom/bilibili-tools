@@ -88,7 +88,7 @@
             android:layout_alignBottom="@id/rl_progress"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="-49dp"
-            android:background="@drawable/bg_btn_3"
+            android:background="@drawable/bg_btn_8"
             android:padding="@dimen/dp_10"
             android:text="白嫖人数: 0 | 观看人数: 0"
             android:textColor="#FFFFFF"

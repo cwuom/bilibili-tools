@@ -741,6 +741,7 @@ public class MainActivity extends AppCompatActivity {
                                 SharedPreferences.Editor edt = share.edit();
                                 edt.putString("ifd", "true");
                                 edt.commit();
+                                MessageDialog.show("小彩蛋", "复制完成视频链接或UID时，点击上方的时间，可以快速粘贴！\nps: 长按时间又惊喜哦(可能是个空壳)", "确定");
                                 dialog.dismiss();
                             }
                         });
