@@ -5,11 +5,11 @@
 
     <selector>
         <item>
-            <shape android:layout_width="wrap_content">
+            <shape>
                 <gradient
                     android:angle="270.0"
-                    android:endColor="#946F9A"
-                    android:startColor="#7E5FB8" />
+                    android:endColor="#616161"
+                    android:startColor="#676767" />
 
                 <corners
                     android:bottomLeftRadius="20.0dip"
