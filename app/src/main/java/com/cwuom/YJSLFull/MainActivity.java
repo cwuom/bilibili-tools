@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvLast;
     private String last;
 
-    private String nowVersion = "2.0Beta";
+    private String nowVersion = "2.0";
 
     //  进度
     private int mProgress;
