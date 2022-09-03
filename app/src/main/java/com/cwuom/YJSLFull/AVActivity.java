@@ -16,6 +16,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -28,8 +31,14 @@ import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.github.mmin18.widget.RealtimeBlurView;
 import com.kongzue.dialogx.dialogs.BottomDialog;
+import com.kongzue.dialogx.dialogs.BottomMenu;
+import com.kongzue.dialogx.dialogs.FullScreenDialog;
 import com.kongzue.dialogx.dialogs.PopTip;
+import com.kongzue.dialogx.interfaces.BaseDialog;
+import com.kongzue.dialogx.interfaces.OnBindView;
 import com.kongzue.dialogx.interfaces.OnDialogButtonClickListener;
+import com.kongzue.dialogx.interfaces.OnIconChangeCallBack;
+import com.kongzue.dialogx.interfaces.OnMenuItemClickListener;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
@@ -119,6 +128,13 @@ public class AVActivity extends AppCompatActivity {
     private String title;
     private String aid;
 
+    private int viewnum = 0;
+
+
+    private Button mBtnBetaTools;
+
+    private FullScreenDialog webviewDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -133,6 +149,7 @@ public class AVActivity extends AppCompatActivity {
         mTvPiao = findViewById(R.id.tv_piao);
         mBtnDownload = findViewById(R.id.download_av);
         mBtnDanmu = findViewById(R.id.danmu_check);
+        mBtnBetaTools = findViewById(R.id.btn_betatools);
 
 
         Intent i = getIntent();
@@ -530,6 +547,44 @@ public class AVActivity extends AppCompatActivity {
             }
         });
 
+        mBtnBetaTools.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // https://www.bilibili.com/video/BV1Jv4y1F7aA?spm_id_from=333.999.0.0&vd_source=54290fa5146a79dfa59cdb522b1e997d
+                BottomMenu.show(new String[]{"给此视频刷播放量(不稳定)"})
+                        .setOnIconChangeCallBack(new OnIconChangeCallBack(true) {
+                            @Override
+                            public int getIcon(BaseDialog dialog, int index, String menuText) {
+                                switch (menuText){
+                                    case "给此视频刷播放量(不稳定)":
+                                        return R.drawable.data;
+                                }
+                                return 0;
+                            }
+
+                        })
+                        .setOnMenuItemClickListener(new OnMenuItemClickListener<BottomMenu>() {
+                            @Override
+                            public boolean onClick(BottomMenu dialog, CharSequence text, int index) {
+                                if (index == 0){
+                                    viewnum = 0;
+                                    webviewDialog = FullScreenDialog.show(new OnBindView<FullScreenDialog>(R.layout.layout_nibeipianle) {
+                                        @SuppressLint("SetJavaScriptEnabled")
+                                        @Override
+                                        public void onBind(FullScreenDialog dialog, View v) {
+                                            WebView webView = v.findViewById(R.id.wv_pian);
+                                            webView.getSettings().setJavaScriptEnabled(true);
+                                            webView.setWebViewClient(new MyWebViewClient());
+                                            webView.loadUrl(longLink);
+                                        }
+                                    });
+                                }
+                                return false;
+                            }
+                        });
+            }
+        });
+
 
 
     }
@@ -837,6 +892,10 @@ public class AVActivity extends AppCompatActivity {
                         });
             }
 
+            if (msg.what == 12){
+                PopTip.show("已经刷了" + viewnum + "次播放！");
+            }
+
 
         }
 
@@ -925,6 +984,25 @@ public class AVActivity extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public class MyWebViewClient extends WebViewClient {
+
+        public boolean shouldOverrideUrlLoading(WebView webview, String url) {
+            webview.loadUrl(url);
+            return true;
+        }
+
+        public void onPageFinished(WebView view, String url) {
+            if (webviewDialog.isShow()){
+                view.loadUrl(url);
+
+                viewnum++;
+                handler.sendEmptyMessage(12);
+                super.onPageFinished(view, url);
+            }
+        }
+
     }
 
 

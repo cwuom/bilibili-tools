@@ -6,6 +6,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -31,18 +32,26 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bitvale.switcher.SwitcherC;
 import com.github.mmin18.widget.RealtimeBlurView;
 import com.google.android.material.textfield.TextInputLayout;
 import com.kongzue.dialogx.DialogX;
 import com.kongzue.dialogx.dialogs.BottomDialog;
+import com.kongzue.dialogx.dialogs.BottomMenu;
 import com.kongzue.dialogx.dialogs.FullScreenDialog;
 import com.kongzue.dialogx.dialogs.MessageDialog;
+import com.kongzue.dialogx.dialogs.PopNotification;
 import com.kongzue.dialogx.dialogs.PopTip;
+import com.kongzue.dialogx.dialogs.WaitDialog;
+import com.kongzue.dialogx.interfaces.BaseDialog;
 import com.kongzue.dialogx.interfaces.OnBindView;
 import com.kongzue.dialogx.interfaces.OnDialogButtonClickListener;
+import com.kongzue.dialogx.interfaces.OnIconChangeCallBack;
+import com.kongzue.dialogx.interfaces.OnMenuItemClickListener;
 import com.kongzue.dialogx.style.KongzueStyle;
+import com.kongzue.dialogx.style.MIUIStyle;
 import com.lky.toucheffectsmodule.TouchEffectsManager;
 import com.lky.toucheffectsmodule.factory.TouchEffectsFactory;
 import com.lky.toucheffectsmodule.types.TouchEffectsViewType;
@@ -53,7 +62,16 @@ import com.ncorti.slidetoact.SlideToActView;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.lang.ref.WeakReference;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLConnection;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -75,7 +93,6 @@ public class MainActivity extends AppCompatActivity {
 
     static final String db_name = "testDatabase";
     static final String tb_name = "tempTable";
-    SQLiteDatabase db;
 
     private TextView mTvTime;
     private String time_now;
@@ -103,17 +120,56 @@ public class MainActivity extends AppCompatActivity {
     private String backUID;
     private String backAV;
 
+    private TextView mTvLast;
+    private String last;
+
+    private String nowVersion = "2.0Beta";
+
+    //  进度
+    private int mProgress;
+
+    private CustomizedProgressBar mProgessPiao;
+    private TextView mTvPiao;
+
+    private Context context;
+    private String url;
 
 
-    static {
+    // 获取SD卡根目录
+    private static final String ROOT = Environment.getExternalStorageDirectory().getPath();
+
+    // 文件保存路径
+    private static final String savePath = ROOT + "/bilibili-tools/";
+
+    // 文件路径+文件名
+    private static final String saveFilePath = savePath + "update.apk";
+    
+    // 下载标识
+    private static final int DOWN_UPDATE = 14;
+
+    // 结束下载标识
+    private static final int DOWN_OVER = 15;
+
+    // 下载错误标识
+    private static final int DOWN_FAIL = 16;
+
+    // 取消下载按钮标识
+    private boolean interceptFlag = false;
+
+    // 子线程
+    private Thread downloadThread;
+
+    private boolean iUpdate = false;
+
+
+
+    static { // 点击效果
         TouchEffectsManager.build(TouchEffectsWholeType.SCALE)//设置全局使用哪种效果
                 .addViewType(TouchEffectsViewType.Button)//添加哪些View支持这个效果
                 .addViewType(TouchEffectsViewType.TextView)
                 .setListWholeType(TouchEffectsWholeType.RIPPLE);//为父控件为列表的情况下，设置特定效果
     }
 
-    //图片缩放比例
-    private static final float BITMAP_SCALE = 0.4f;
 
     private Handler handler = new MyHandler(this);
 
@@ -508,6 +564,111 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBtnCheck.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                BottomMenu.show(new String[]{"解析自己", "展望未来", "关于此APP", "更新检测"})
+                        .setOnIconChangeCallBack(new OnIconChangeCallBack(true) {
+                            @Override
+                            public int getIcon(BaseDialog dialog, int index, String menuText) {
+                                switch (menuText){
+                                    case "解析自己":
+                                        return R.drawable.me;
+
+                                    case "展望未来":
+                                        return R.drawable.test;
+
+                                    case "关于此APP":
+                                        return R.drawable.github;
+
+                                    case "更新检测":
+                                        return R.drawable.update;
+                                }
+                                return 0;
+                            }
+                        })
+                        .setOnMenuItemClickListener(new OnMenuItemClickListener<BottomMenu>() {
+                            @Override
+                            public boolean onClick(BottomMenu dialog, CharSequence text, int index) {
+                                if (index == 0){
+                                    Intent intent = new Intent(MainActivity.this, selfActivity.class);
+                                    startActivity(intent);
+                                }
+                                if (index == 1){
+                                    PopNotification.build()
+                                            .setStyle(new MIUIStyle())
+                                            .setTitle("cwuom")
+                                            .setIconResId(R.drawable.email)
+                                            .setMessage("世界上又多了一个鸽子！")
+                                            .autoDismiss(5000)
+                                            .show();
+                                }
+                                if (index == 2){
+                                    Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                                    startActivity(intent);
+                                }
+
+                                if (index == 3){
+                                    FullScreenDialog.show(new OnBindView<FullScreenDialog>(R.layout.layout_update) {
+                                        @SuppressLint("SetTextI18n")
+                                        @Override
+                                        public void onBind(FullScreenDialog dialog, View v) {
+                                            mTvLast = v.findViewById(R.id.tv_last_version);
+                                            Button btn_update;
+
+                                            mProgessPiao = v.findViewById(R.id.progress);
+                                            mTvPiao = v.findViewById(R.id.tv_data_integrity);
+
+                                            new Thread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    try {
+                                                        String urlPath;
+                                                        URL url;
+                                                        URLConnection conn;
+                                                        BufferedReader br;
+                                                        StringBuilder sb;
+                                                        String line;
+
+                                                        url = new URL("http://update.cwuom0v0.top/last_version.txt");
+                                                        conn = url.openConnection();
+                                                        conn.setDoInput(true);
+                                                        br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                                                        sb = new StringBuilder();
+                                                        line = null;
+                                                        while ((line = br.readLine()) != null) {
+                                                            sb.append(line);
+                                                        }
+
+                                                        last = String.valueOf(sb);
+
+                                                    } catch (Exception e) {
+                                                        e.printStackTrace();
+                                                    }
+                                                    Log.e("last",last);
+                                                    handler.sendEmptyMessage(12);
+                                                }
+                                            }).start();
+
+
+                                            btn_update = v.findViewById(R.id.btn_update);
+                                            btn_update.setOnClickListener(new View.OnClickListener() {
+                                                @Override
+                                                public void onClick(View v) {
+                                                    handler.sendEmptyMessage(13);
+                                                }
+                                            });
+                                        }
+                                    });
+                                }
+                                return false;
+                            }
+                        });
+                return true;
+            }
+        });
+
+
 
         mBtnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -641,6 +802,7 @@ public class MainActivity extends AppCompatActivity {
             this.weakReference = new WeakReference(activity);
         }
 
+        @SuppressLint("SetTextI18n")
         @Override
         public void handleMessage(Message msg) { // 子线程不能更新UI
             MainActivity activity = weakReference.get();
@@ -741,15 +903,165 @@ public class MainActivity extends AppCompatActivity {
                                 SharedPreferences.Editor edt = share.edit();
                                 edt.putString("ifd", "true");
                                 edt.commit();
-                                MessageDialog.show("小彩蛋", "复制完成视频链接或UID时，点击上方的时间，可以快速粘贴！\nps: 长按时间又惊喜哦(可能是个空壳)", "确定");
+                                MessageDialog.show("快捷使用", "复制完成视频链接或UID时，点击上方的时间，可以快速粘贴！在主界面还可以试试长按底部按钮进行展开。", "确定");
                                 dialog.dismiss();
                             }
                         });
                     }
                 });
             }
+
+            if (msg.what == 12){
+                mTvLast.setText("最新版本:"+last);
+            }
+
+            if (msg.what == 13){
+                if (!iUpdate){
+                    try {
+                        if (last.contains(nowVersion)){
+                            MessageDialog.show("已经最新了！", "您当前使用的版本貌似无需更新，确定下载吗？", "确定").setOkButton(new OnDialogButtonClickListener<MessageDialog>() {
+                                @Override
+                                public boolean onClick(MessageDialog baseDialog, View v) {
+                                    downloadThread = new Thread(downAPKRunnable);
+                                    downloadThread.start();
+
+                                    iUpdate = true;
+                                    return false;
+                                }
+                            }).setCancelButton("取消", new OnDialogButtonClickListener<MessageDialog>() {
+                                @Override
+                                public boolean onClick(MessageDialog dialog, View v) {
+                                    return false;
+                                }
+                            });
+
+                        }else {
+                            downloadThread = new Thread(downAPKRunnable);
+                            downloadThread.start();
+
+                            iUpdate = true;
+                        }
+                    } catch (Exception e) {
+                        MessageDialog.show("心急吃不了热豆腐", "人家还没加载出来啦！过一会再试试？", "确定");
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            if (msg.what == 14){
+                iUpdate = true;
+                mProgessPiao.setCurrentCount(mProgress);
+                mTvPiao.setText("下载中|" + mProgress +"%");
+            }
+
+            if (msg.what == 15){
+                mTvPiao.setText("下载完成！");
+                installAPK();
+                iUpdate = false;
+            }
+
+            if (msg.what == 16){
+                PopTip.show("下载失败！");
+                mProgessPiao.setCurrentCount(0);
+                mTvPiao.setText("ERROR");
+                iUpdate = false;
+            }
         }
     }
+
+
+
+    // 安装APK
+    private void installAPK() {
+        Context mContext = MainActivity.this;
+        setPermission(saveFilePath);
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        // 由于没有在Activity环境下启动Activity,设置下面的标签
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {   //7.0版本以上
+            File file = (new File(saveFilePath));
+            Uri uriForFile = FileProvider.getUriForFile(mContext, "com.cwuom.YJSLFull.fileprovider", file);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            intent.setDataAndType(uriForFile, "application/vnd.android.package-archive");
+
+        } else {
+            File file = (new File(saveFilePath));
+            Uri uri = Uri.fromFile(file);
+            intent.setDataAndType(uri, "application/vnd.android.package-archive");
+
+        }
+        mContext.startActivity(intent);
+    }
+
+    //修改文件权限
+    private void setPermission(String absolutePath) {
+        String command = "chmod " + "777" + " " + absolutePath;
+        Runtime runtime = Runtime.getRuntime();
+        try {
+            runtime.exec(command);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // 子线程中执行下载
+    private Runnable downAPKRunnable = new Runnable() {
+
+        @Override
+        public void run() {
+            try {
+                URL uri = new URL("http://update.cwuom0v0.top/app-release.apk");
+
+                HttpURLConnection urlConnection = (HttpURLConnection) uri
+                        .openConnection();
+                urlConnection.connect();
+                // 获取下载文件长度
+                int apkLength = urlConnection.getContentLength();
+                InputStream inputStream = urlConnection.getInputStream();
+                // 创建文件保存路径
+                File file = new File(savePath);
+                if (!file.exists()) {
+                    file.mkdir();
+                }
+                File APKFile = new File(saveFilePath);
+                FileOutputStream fileOutputStream = new FileOutputStream(
+                        APKFile);
+                // 已经下载的长度
+                int count = 0;
+                byte[] bs = new byte[1024];
+                do {
+                    int num = inputStream.read(bs);
+                    count += num;
+                    mProgress = (int) (((float) count / apkLength) * 100);
+                    handler.sendEmptyMessage(DOWN_UPDATE);
+                    if (num <= 0) {
+                        handler.sendEmptyMessage(DOWN_OVER);
+                        break;
+                    }
+                    fileOutputStream.write(bs, 0, num);
+                }
+                // 点击取消停止下载
+                while (!interceptFlag);
+                fileOutputStream.close();
+                inputStream.close();
+            } catch (Exception e) {
+                handler.sendEmptyMessage(DOWN_FAIL);
+                e.printStackTrace();
+            }
+        }
+    };
+    
+
+    private void startInstallPermissionSettingActivity() {
+        Intent intent = new Intent(Settings.ACTION_MANAGE_UNKNOWN_APP_SOURCES);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+
 
     private void requestPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

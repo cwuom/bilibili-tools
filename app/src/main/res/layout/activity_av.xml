@@ -119,6 +119,18 @@
             android:textSize="@dimen/sp_20"
             android:textStyle="bold" />
 
+        <Button
+            android:id="@+id/btn_betatools"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/download_av"
+            android:layout_marginBottom="-137dp"
+            android:background="@drawable/bg_btn_10"
+            android:text="实验性功能"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold" />
+
 
     </RelativeLayout>
 

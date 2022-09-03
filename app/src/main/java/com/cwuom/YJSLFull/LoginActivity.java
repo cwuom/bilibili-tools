@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         DialogX.init(this);
-        PopTip.show("上个界面已经关闭，返回后请重新解析\n这个提示是为了告诉你这不是bug\n(´；ω；`)", "我已知晓").noAutoDismiss();
+        PopTip.show("请先登录！", "我已知晓").noAutoDismiss();
 
         mWvLogin = findViewById(R.id.wv_login);
         mWvLogin.getSettings().setJavaScriptEnabled(true);

@@ -43,7 +43,7 @@
         android:layout_alignBottom="@id/tv_title"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-241dp"
-        android:text="@string/b_api_n_cookie_n_n_nb_im_cwuom_cwuomcwuom00"
+        android:text="首先非常感谢您使用这个APP，请务必看完！这会帮助你更好的使用这个软件。\n完成验证后，你可以长按“分析并查看”展开更多功能。如果你觉得手动粘贴麻烦，不妨试试点击上方的“时间”来快速粘贴哦！其他功能你可以自行探索，我的B站是im-cwuom！"
         android:textColor="#3A3A3A"
         android:textSize="@dimen/sp_15"
         android:textStyle="bold" />

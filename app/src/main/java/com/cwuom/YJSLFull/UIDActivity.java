@@ -28,6 +28,7 @@ import com.kongzue.dialogx.dialogs.BottomMenu;
 import com.kongzue.dialogx.dialogs.FullScreenDialog;
 import com.kongzue.dialogx.dialogs.InputDialog;
 import com.kongzue.dialogx.dialogs.MessageDialog;
+import com.kongzue.dialogx.dialogs.PopNotification;
 import com.kongzue.dialogx.dialogs.PopTip;
 import com.kongzue.dialogx.interfaces.BaseDialog;
 import com.kongzue.dialogx.interfaces.OnBindView;
@@ -35,7 +36,9 @@ import com.kongzue.dialogx.interfaces.OnDialogButtonClickListener;
 import com.kongzue.dialogx.interfaces.OnIconChangeCallBack;
 import com.kongzue.dialogx.interfaces.OnInputDialogButtonClickListener;
 import com.kongzue.dialogx.interfaces.OnMenuItemClickListener;
+import com.kongzue.dialogx.style.IOSStyle;
 import com.kongzue.dialogx.style.KongzueStyle;
+import com.kongzue.dialogx.style.MIUIStyle;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.core.BasePopupView;
 import com.lxj.xpopup.interfaces.OnSelectListener;
@@ -75,7 +78,6 @@ import okhttp3.Response;
  * */
 
 public class UIDActivity extends AppCompatActivity {
-
     private String uid;
     private String name;
     private String imgUrl;
@@ -216,6 +218,20 @@ public class UIDActivity extends AppCompatActivity {
         Intent i = getIntent();
         uid = i.getStringExtra("UID");
         Log.e("uid", uid);
+
+        // UID:473400804
+
+        if (Objects.equals(uid, "473400804")){
+//            PopNotification.show(R.drawable.email, "cwuom", "听说有人正在解析我?").autoDismiss(4000);
+            PopNotification.build()
+                    .setStyle(new MIUIStyle())
+                    .setTitle("cwuom")
+                    .setIconResId(R.drawable.email)
+                    .setMessage("听说有人正在解析我?")
+                    .autoDismiss(5000)
+                    .show();
+
+        }
 
 
         mBtnAuto.setOnClickListener(new View.OnClickListener() {

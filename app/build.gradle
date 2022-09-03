@@ -1,7 +1,7 @@
 plugins {
     id 'com.android.application'
 }
-def dialogx_version = "0.0.45.beta12"
+def dialogx_version = "0.0.46.beta11"
 android {
     compileSdk 32
 
@@ -9,8 +9,8 @@ android {
         applicationId "com.cwuom.YJSLFull"
         minSdk 21
         targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true    // Enable RS support
@@ -79,4 +79,9 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+
+    implementation 'com.github.thomhurst:ExpandableHintText:1.0.7'
+
+    implementation 'com.zzhoujay.richtext:richtext:3.0.7'  // 停更了确实可惜
 }

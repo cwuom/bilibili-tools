@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="@dimen/dp_10">
+
+
+    <ImageView
+        android:id="@+id/bilibili"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/bilibili_2" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bilibili"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-123dp"
+        android:text="bilibili辅助器(update)"
+        android:textColor="#1C1C1C"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_now_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bilibili"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-284dp"
+        android:text="当前版本: 2.0"
+        android:textColor="#1C1C1C"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_last_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bilibili"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-219dp"
+        android:text="最新版本: -"
+        android:textColor="#1C1C1C"
+        android:textSize="@dimen/sp_25"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/bilibili"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-323dp"
+        android:text="(v2022.9.4)"
+        android:textColor="#1C1C1C"
+        android:textSize="@dimen/sp_18"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/rl_progress"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_alignBottom="@id/bilibili"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="-400dp">
+
+        <com.cwuom.YJSLFull.CustomizedProgressBar
+            android:id="@+id/progress"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/tv_data_integrity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:textSize="15sp"
+            tools:text="0%" />
+    </RelativeLayout>
+
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tv_last_version"
+        android:layout_marginBottom="-325dp"
+        android:background="@drawable/bg_btn_2"
+        android:text="开始更新"
+        android:textColor="#FFFFFF"
+        android:textSize="@dimen/sp_20" />
+
+
+</RelativeLayout>

@@ -9,6 +9,7 @@
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_1.xml" value="0.1" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_10.xml" value="0.2425" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_11.xml" value="0.2425" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_12.xml" value="0.243" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_2.xml" value="0.2415" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_3.xml" value="0.2415" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/bg_btn_4.xml" value="0.2405" />
@@ -31,21 +32,26 @@
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/radiobtn_ripplecolor.xml" value="0.2405" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/radiobtn_textcolor.xml" value="0.2405" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/drawable/text_bg.xml" value="0.2415" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_about.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_auto.xml" value="0.22" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_av.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_chat.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_first.xml" value="0.33541666666666664" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_login.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_self.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_uid.xml" value="0.33" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_vipactivity.xml" value="0.35104166666666664" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/activity_word.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_check.xml" value="0.28815733219324496" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_first.xml" value="0.2975630611372381" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_nibeipianle.xml" value="0.288034188034188" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/layout_update.xml" value="0.28730226592560926" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/out.xml" value="0.2984181274048739" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/toast.xml" value="0.33" />
         <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/layout/toast_ok.xml" value="0.25" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/xml/file_paths.xml" value="0.2625" />
+        <entry key="..\:/Users/ROG/AndroidStudioProjects/3/app/src/main/res/xml/network_security_config.xml" value="0.28730226592560926" />
       </map>
     </option>
   </component>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UIDActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp_20">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/bg_btn_9"
+            android:paddingLeft="@dimen/dp_20"
+            android:paddingRight="@dimen/dp_20"
+            android:text="人家还没出来啦！"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_28"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/iv_bg"
+            android:layout_width="512px"
+            android:layout_height="512px"
+            android:layout_alignBottom="@id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-206dp"
+            android:src="@drawable/face" />
+
+        <Button
+            android:id="@+id/btn_check"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_bg"
+            android:layout_marginBottom="-82dp"
+            android:background="@drawable/bg_btn_8"
+            android:text="查看详细信息"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <Button
+            android:id="@+id/btn_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_bg"
+            android:layout_marginBottom="-142dp"
+            android:background="@drawable/bg_btn_8"
+            android:text="查看总数据"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <Button
+            android:id="@+id/btn_view_all"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_bg"
+            android:layout_marginBottom="-213dp"
+            android:background="@drawable/bg_btn_11"
+            android:text="选择视频解析"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <nl.dionsegijn.steppertouch.StepperTouch
+            android:id="@+id/stepperTouch"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@id/btn_view_all"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-54dp" />
+
+        <RelativeLayout
+            android:id="@+id/rl_progress"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:layout_alignBottom="@id/stepperTouch"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="-40dp">
+
+            <com.cwuom.YJSLFull.CustomizedProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_data_integrity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:textSize="10sp"
+                tools:text="白嫖率0%" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_view_piao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_bg"
+            android:layout_marginBottom="-372dp"
+            android:background="@drawable/bg_btn_10"
+            android:text="计算当前白嫖率"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+        <Button
+            android:id="@+id/btn_automation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/iv_bg"
+            android:layout_marginBottom="-437dp"
+            android:background="@drawable/bg_btn_10"
+            android:text="自动化"
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/sp_20" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

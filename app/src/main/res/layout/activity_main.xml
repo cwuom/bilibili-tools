@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/textField"
             android:layout_marginBottom="-139dp"
-            android:background="@drawable/bg_btn_3"
+            android:background="@drawable/bg_btn_12"
             android:hint="视频链接"
             android:padding="@dimen/dp_10"
             app:counterEnabled="true"
