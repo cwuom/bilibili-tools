@@ -25,6 +25,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
+import android.os.Vibrator;
 import android.provider.Settings;
 import android.text.TextUtils;
 import android.util.Log;
@@ -131,7 +132,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mTvLast;
     private String last;
 
-    private String nowVersion = "2.0";
+    private String nowVersion = "2.1";
 
     //  进度
     private int mProgress;
@@ -267,13 +268,18 @@ public class MainActivity extends AppCompatActivity {
                 Log.e("num", String.valueOf(inum));
                 mIvBg.setImageResource(images.get(inum));
                 mIvBg.setImageResource(images.get(inum));
+
+                Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(30);
                 return null;
             }
         });
 
-        switcher.setOnLongClickListener(new View.OnLongClickListener() {
+        mBlurBg.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(30);
                 PictureSelector.create(MainActivity.this)
                         .openGallery(SelectMimeType.ofImage())
                         .setImageEngine(GlideEngine.createGlideEngine())
@@ -332,6 +338,9 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     }).start();
+
+                    Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                    vibrator.vibrate(10);
                 }
 
                 MainActivity.this.getWindow().getDecorView().post(new Runnable() {
@@ -527,6 +536,9 @@ public class MainActivity extends AppCompatActivity {
                     mTextField.animate().translationY(mTextField2.getY() - mTextField.getY()).setDuration(1000).start();
                     mTextField2.animate().translationY(mTextField.getY() - mTextField2.getY()).setDuration(1000).start();
 
+                    Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                    vibrator.vibrate(20);
+
                     // FUCK！！！ 这个方法有BUG
 //                    TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, 300);
 //                    translateAnimation.setDuration(1000);
@@ -554,6 +566,9 @@ public class MainActivity extends AppCompatActivity {
                     mTextField2.animate().translationY(0).setDuration(1000).start();
                     mTextField.getBackground().setAlpha(255);
                     mBlurBg.setBlurRadius(0);
+
+                    Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                    vibrator.vibrate(20);
                 }
 
             }
@@ -611,12 +626,17 @@ public class MainActivity extends AppCompatActivity {
                 if (text.equals("UID")){
                     iUIDorAV = 0;
                 }
+
+                Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(15);
             }
         });
 
         mBtnCheck.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(25);
                 BottomMenu.show(new String[]{"解析自己", "展望未来", "关于此APP", "更新检测"})
                         .setOnIconChangeCallBack(new OnIconChangeCallBack(true) {
                             @Override
@@ -723,6 +743,8 @@ public class MainActivity extends AppCompatActivity {
         mBtnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Vibrator vibrator = (Vibrator)MainActivity.this.getSystemService(VIBRATOR_SERVICE);
+                vibrator.vibrate(20);
                 if (iUIDorAV == 1){
                     try {
                         SharedPreferences share = getSharedPreferences("temp",MODE_PRIVATE);
