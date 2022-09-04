@@ -75,7 +75,16 @@
 - 更新UI
 
 > V2.1
-- 新增自定义选择图片（长按底部圆环）
+- 新增自定义背景图片（长按背景）
+
+> V2.2
+- 新增触感反馈
+
+
+# 我需要注意什么？
+
+ - **部分功能频繁使用会导致IP被短暂风控（APP不受影响）**
+ - **免费软件，禁止倒卖**
 
 
 # 联系方式
@@ -85,6 +94,71 @@
 >**QQ: 2594748568**
 
 > 群里还没人，快[点击加入](https://jq.qq.com/?_wv=1027&k=5qSAUYgk)群聊抢沙发吧！
+
+
+# 项目用到的组件
+```` java
+implementation 'com.github.li-xiaojun:XPopup:2.8.6'  
+implementation 'androidx.appcompat:appcompat:1.3.1'  
+implementation 'com.google.android.material:material:1.4.0'  
+implementation 'androidx.recyclerview:recyclerview:1.2.1'  
+
+implementation 'com.github.bumptech.glide:glide:4.13.2'  
+implementation 'com.google.android.gms:play-services-tasks:17.2.1'  
+annotationProcessor 'com.github.bumptech.glide:compiler:4.13.2'  
+
+implementation 'org.jsoup:jsoup:1.12.1'  
+
+implementation 'com.squareup.okhttp3:okhttp:4.4.1'  
+
+implementation 'com.github.mmin18:realtimeblurview:1.2.1' // 遮罩模糊  
+
+implementation 'nl.bryanderidder:themed-toggle-button-group:1.4.1'  
+//    implementation 'com.github.Chrisvin:FlipTabs:v1.5' 有BUG，废除  
+
+implementation 'com.github.tibolte:elasticdownload:1.0.+' // 文件下载  
+
+implementation 'com.liulishuo.filedownloader:library:1.7.7' // 文件下载  
+
+implementation 'io.github.bitvale:switcher:1.1.2' // 开关按钮  
+
+// 这个UI不错 值得支持  
+implementation "com.github.kongzue.DialogX:DialogXIOSStyle:${dialogx_version}"  
+implementation "com.github.kongzue.DialogX:DialogX:${dialogx_version}"  
+implementation "com.github.kongzue.DialogX:DialogXKongzueStyle:${dialogx_version}"  
+implementation "com.github.kongzue.DialogX:DialogXMIUIStyle:${dialogx_version}"  
+implementation "com.github.kongzue.DialogX:DialogXMaterialYou:${dialogx_version}"  
+
+implementation "com.ncorti:slidetoact:0.9.0"  
+
+implementation 'androidx.appcompat:appcompat:1.3.0'  
+implementation 'com.google.android.material:material:1.4.0'  
+
+implementation 'com.github.GwonHyeok:StickySwitch:0.0.16'  
+
+implementation 'com.etebarian:meow-bottom-navigation:1.3.1'  
+
+implementation 'com.github.DanielMartinus:Stepper-Touch:1.0.1'  
+
+implementation 'com.github.likaiyuan559:TouchEffects:0.4.1'  
+
+implementation 'androidx.constraintlayout:constraintlayout:2.0.4'  
+testImplementation 'junit:junit:4.13.2'  
+androidTestImplementation 'androidx.test.ext:junit:1.1.3'  
+androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'  
+
+
+implementation 'com.github.thomhurst:ExpandableHintText:1.0.7'  
+
+implementation 'com.zzhoujay.richtext:richtext:3.0.7' // MD展示  
+
+// PictureSelector   
+implementation 'io.github.lucksiege:pictureselector:v3.10.6'  
+implementation 'io.github.lucksiege:compress:v3.10.6'  
+implementation 'io.github.lucksiege:ucrop:v3.10.6'  
+implementation 'io.github.lucksiege:camerax:v3.10.6'
+
+````
 
 # FAQ
 > 我在使用过程中软件界面(layout)显示异常应该怎么办？
