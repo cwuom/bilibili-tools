@@ -10,7 +10,7 @@ android {
         minSdk 21
         targetSdk 32
         versionCode 2
-        versionName "2.0"
+        versionName "2.1"
 
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true    // Enable RS support
@@ -84,4 +84,16 @@ dependencies {
     implementation 'com.github.thomhurst:ExpandableHintText:1.0.7'
 
     implementation 'com.zzhoujay.richtext:richtext:3.0.7'  // 停更了确实可惜
+
+    // PictureSelector 基础 (必须)
+    implementation 'io.github.lucksiege:pictureselector:v3.10.6'
+
+    // 图片压缩 (按需引入)
+    implementation 'io.github.lucksiege:compress:v3.10.6'
+
+    // 图片裁剪 (按需引入)
+    implementation 'io.github.lucksiege:ucrop:v3.10.6'
+
+    // 自定义相机 (按需引入)
+    implementation 'io.github.lucksiege:camerax:v3.10.6'
 }

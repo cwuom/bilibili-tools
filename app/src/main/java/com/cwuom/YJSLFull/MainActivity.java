@@ -18,6 +18,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,6 +57,13 @@ import com.lky.toucheffectsmodule.TouchEffectsManager;
 import com.lky.toucheffectsmodule.factory.TouchEffectsFactory;
 import com.lky.toucheffectsmodule.types.TouchEffectsViewType;
 import com.lky.toucheffectsmodule.types.TouchEffectsWholeType;
+import com.luck.picture.lib.basic.PictureSelector;
+import com.luck.picture.lib.config.SelectMimeType;
+import com.luck.picture.lib.entity.LocalMedia;
+import com.luck.picture.lib.entity.LocalMediaFolder;
+import com.luck.picture.lib.interfaces.OnQueryAllAlbumListener;
+import com.luck.picture.lib.interfaces.OnResultCallbackListener;
+import com.luck.picture.lib.loader.IBridgeMediaLoader;
 import com.lxj.xpopup.XPopup;
 import com.lxj.xpopup.interfaces.OnConfirmListener;
 import com.ncorti.slidetoact.SlideToActView;
@@ -227,19 +235,29 @@ public class MainActivity extends AppCompatActivity {
 
 
         int inum = share.getInt("inum",0);
-        Log.e("inum", String.valueOf(inum));
+        String imgpath = share.getString("path","");
 
-        Log.e("num", String.valueOf(inum));
-        mIvBg.setImageResource(images.get(inum));
+        if (Objects.equals(imgpath, "")){
+            Log.e("inum", String.valueOf(inum));
+
+            Log.e("num", String.valueOf(inum));
+
+
+            mIvBg.setImageResource(images.get(inum));
+        }else{
+            Bitmap bitmap = BitmapFactory.decodeFile(imgpath);//从路径加载出图片bitmap
+            mIvBg.setImageBitmap(bitmap);//ImageView显示图片
+        }
 
         switcher.setOnCheckedChangeListener(new Function1<Boolean, Unit>() {
             @Override
             public Unit invoke(Boolean aBoolean) {
                 if (imageNum < images.size() - 1){
                     imageNum++;
-
+                    edt.remove("path");
                 }else{
                     imageNum = 0;
+                    edt.remove("path");
                 }
 
                 edt.putInt("inum", imageNum);
@@ -253,6 +271,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        switcher.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                PictureSelector.create(MainActivity.this)
+                        .openGallery(SelectMimeType.ofImage())
+                        .setImageEngine(GlideEngine.createGlideEngine())
+                        .setMaxSelectNum(1)
+                        .forResult(new OnResultCallbackListener<LocalMedia>() {
+                            @Override
+                            public void onResult(ArrayList<LocalMedia> result) {
+                                Log.e("path", String.valueOf(result.get(0).getRealPath()));
+                                edt.putString("path", String.valueOf(result.get(0).getRealPath()));
+                                edt.commit();
+
+                                String imgpath = share.getString("path","");
+
+
+                                Bitmap bitmap = BitmapFactory.decodeFile(imgpath);//从路径加载出图片bitmap
+                                mIvBg.setImageBitmap(bitmap);//ImageView显示图片
+                            }
+
+                            @Override
+                            public void onCancel() {
+
+                            }
+                        });
+                return true;
+            }
+        });
+
 
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q && ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -260,6 +308,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         requestPermission();
+
+
 
 
         mTvTime.setOnClickListener(new View.OnClickListener() {

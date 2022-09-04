@@ -33,7 +33,7 @@
         android:layout_alignBottom="@id/bilibili"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-284dp"
-        android:text="当前版本: 2.0"
+        android:text="当前版本: 2.1"
         android:textColor="#1C1C1C"
         android:textSize="@dimen/sp_20"
         android:textStyle="bold" />
@@ -57,7 +57,7 @@
         android:layout_alignBottom="@id/bilibili"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-323dp"
-        android:text="(v2022.9.4)"
+        android:text="(v2022.9.5)"
         android:textColor="#1C1C1C"
         android:textSize="@dimen/sp_18"
         android:textStyle="bold" />
