@@ -84,6 +84,10 @@
 - 更改界面样式，优化部分细节
 - 增加新手引导
 
+> V2.4
+- 新增收藏夹失效视频回溯功能（发布者UID,发布者昵称,视频简介,收藏时间,视频发布时间） -> 支持复制
+- 新增选项目前放在主界面底部解析按钮（长按展开菜单）
+
 
 # 我需要注意什么？
 
@@ -100,7 +104,7 @@
 > 群里还没人，快[点击加入](https://jq.qq.com/?_wv=1027&k=5qSAUYgk)群聊抢沙发吧！
 
 
-# 项目用到的组件
+# 项目用到的组件（主要组件）
 ```` java
 implementation 'com.github.li-xiaojun:XPopup:2.8.6'  
 implementation 'androidx.appcompat:appcompat:1.3.1'  
