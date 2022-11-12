@@ -3,11 +3,12 @@
 
 一个基于android开发的哔哩哔哩辅助器
 
-
-
 # 说明
 ***首先非常感谢你能下载并使用这个APP，如果有任何问题都可以向我反馈哦！***
->由于是第一次写这类APP，难免会有些缺陷，[点击这里下载APP](http://update.cwuom0v0.top/app-release.apk)
+>由于是第一次写这类APP，难免会有些缺陷，[点击这里下载APP](https://gitee.com/cwuom/bilibili-tools-update/blob/test/app-release.apk)
+
+# 重要说明
+> 此项目已经停止维护和更新 （源码丢失，服务器到期）
 
 # 如何使用？
  - 首先在初始界面选择对应的身份，如果你不想关注我，可以在初始界面选择第二个跳过注册
